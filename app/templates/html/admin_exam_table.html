@@ -1,0 +1,30 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'table.css'%}">
+<form method="get">
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Session</th>
+            <th>Subject</th>
+            <th>Room</th>
+            <th>Modify</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+      {% for info in exams %}
+        <tr>
+            <td>{{info.exam_date}}</td>
+            <td>{{info.session}}</td>
+            <td>{{info.subject}}</td>
+            <td>{{info.room_id}}</td>
+            <td><button id="btt" name = "Delete" value="{{info.id}}" >Delete</button>
+	
+        </tr>
+        
+        </form>
+         {% endfor %}
+        <!-- and so on... -->
+    </tbody>
+</table>

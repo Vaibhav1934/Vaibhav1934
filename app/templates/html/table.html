@@ -1,0 +1,46 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'table.css'%}">
+    <form method="GET" >
+<table class="styled-table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Room</th>
+            <th>session</th>
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for room in data %}
+        <tr>
+            <td>{{room.fname}}</td>
+            <td>{{room.exam_date}}</td>
+            <td>{{room.froom}}</td>
+           {% if room.session == 'A' %}
+             <td> Afternoon</td>
+           {% else %}
+             <td> Morning</td>
+             
+             {% endif %}
+
+             
+              <td>
+             <input type="hidden" name="fname" value="{{room.fname}}" />
+             <input type="hidden" name="froom" value="{{room.froom}}" />
+             <input type="hidden" name="exam_date" value="{{room.exam_date}}" />
+              <button  id="btt" name="Delete" value="{{room.id}}"> Delete </button>
+              </from>
+              
+              <form method="GET" action="edit.html" >
+	    <button id="edit" name = "edit" value="{{room.id}}"  />Edit</td>
+	   </from>
+		  
+        </tr>
+         {% endfor %}
+        <!-- and so on... -->
+    </tbody>
+</table>
+ </form>

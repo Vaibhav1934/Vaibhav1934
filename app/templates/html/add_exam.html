@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'addfaculty.css' %}">
+<div class="login-wrap">
+
+  <h1>Add Exam</h1>
+  
+  <form method = "get">
+  <div class="form" method= "get">
+     <input type="date"  name="date" required/>
+     <input type="radio"  id ="session" name ="ss" value="M" required/><lable>Morning</lable>
+     <input type="radio"  id ="session" name ="ss" value="A"><lable>Afternoon</lable>
+     <input type="text" placeholder="exam-subject" name="es" /> 
+     <select name="rm">
+    {% for room in data %}
+    <option  value ="{{ room.roomno }}" >{{room.roomno}}</option>
+    {% endfor %}
+ 	</select>
+   
+    
+    <button id="del" name="del" value="0" > Delete All </button>
+    </form>
+    <button id="del" type="submit" value="1" > Add </button>
+
+  </div>
+</div>

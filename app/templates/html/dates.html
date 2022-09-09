@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href=" {% static 'dates.css' %}">
+<div class="dropdown">
+  <button class="dropbtn">Exam Date</button>
+  <div class="dropdown-content">
+
+   {% for date in dates %}
+   
+     <form method ="GET">
+  <input type="submit"  name="submit" id="submit" value="{{date.exam_date}}">
+  </form>
+  {% endfor %}
+  </div>
+</div>
+<br>
+<br>
+
+
+
+
+
+

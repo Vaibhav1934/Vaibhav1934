@@ -1,0 +1,114 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'table.css'%}">
+    <form method="GET" >
+<table class="styled-table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+         
+            <th>Modify</th>
+        </tr>
+    </thead>
+    <tbody>
+
+		<input type="hidden" name = "id" value="{{id}}" />
+		
+ 
+        <tr>
+        {{val.0}}
+ 
+     {% if val.0 is not empty %}
+     
+     
+            <td><select name="name" >
+            <option value="{{val.0}}" selected>{{val.0}}</option>
+            
+             </select>
+             </td>
+            <td><select name="date" >
+            <option value="{{val.1}}" selected>{{val.1}}</option>
+            
+            
+           
+            {% for i in exam1 %}
+             <option value="{{i.0}}" >{{i.0}}</option>
+             
+             {% endfor %}
+             </select>
+             {% if sep != '1' %}
+             <td><button id="edit" name = "done1" value="1"  />Done</td>
+             {% endif %}
+             
+             </tr>
+             <tr>
+             {% if sep == '1' %}
+            <td><select name="room" required >
+            <option value="{{val.2}}" selected >{{val.2}}</option>
+            {% for i in room1 %}
+             <option value="{{i.0}}" >{{i.0}}</option>
+             {% endfor %}
+             </select>
+             {% if nov != '1' %} 
+             <td></td>
+ <td><button id="edit" name = "done2" value="2"  />Done</td>
+             
+             {% endif %}
+             </td>
+             
+             </tr>
+             <tr>
+             <td>
+             
+             {% if ses == 'MA' %}
+             <select name="session" >
+             
+             <option value="A" >Afteroon</option>
+             <option value="M"  >Morning</option>
+                </select>
+             {% elif ses.0.0 == 'A' %}
+             <select name="session" >
+             <option value="A" selecetd >Afternoon</option>
+               
+              </select>
+              {% elif ses.0.0 == 'M' %}
+              <select name="session" >
+               <option value="M" selected >Morning</option>
+           	 </select>
+             
+             {% endif %}
+            
+
+<td></td>
+              
+             </td>
+             
+            
+           
+
+
+             
+              <td>
+             <input type="hidden" name="fname" value="{{room.fname}}" />
+             <input type="hidden" name="froom" value="{{room.froom}}" />
+             <input type="hidden" name="exam_date" value="{{room.exam_date}}" />
+ 
+	    <button id="edit" name = "done" value="4"  />Done</td>
+	   
+        </tr>
+        
+ 
+         {% endif %}
+        
+        {% else %}
+        
+        <h1>NO invigiltor is avaliable </h1>
+        
+         {% endif %}
+        
+        <!-- and so on... -->
+    </tbody>
+</table>
+ </form>

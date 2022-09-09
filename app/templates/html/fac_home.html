@@ -1,0 +1,22 @@
+{% load static %}
+  
+<link rel="stylesheet" href=" {% static 'fac_home.css' %}">
+{% for con in content %}
+      </div>
+      <div class="box">
+        <div class="right-side">
+          {% if con.session == 'M'  %}
+          <div class="box-topic">Morning</div>
+          {% endif %}
+          {% if con.session == 'A' %}
+          <div class="box-topic">Afternoon</div>
+          {% endif %}
+          <div class="number">{{con.froom}}</div>
+          <div class="indicator">
+            <i class='bx bx-up-arrow-alt'></i>
+            <span class="text">{{con.exam_date}}</span>
+          </div>
+        </div>
+        
+
+{% endfor %}     

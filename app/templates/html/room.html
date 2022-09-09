@@ -1,0 +1,174 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'room.css'%}">
+
+{% if inv_or_dc == 'dc' %}
+ <form method ="GET">
+<h1>Morning</h1>
+
+</br>
+
+<form>
+<div class="container">
+  <div class="radio-tile-group">
+    {% for room in data %}
+    
+    {% if room.3 == 'M' %}
+
+     
+
+    <div class="input-container">
+      <input id="walk" class="radio-button" type="radio" name="radiomn"  value="{{ room.2}}" />
+      
+      <div class="radio-tile">
+ 
+        <div class="icon walk-icon">
+        
+        <label for="walk" class="radio-tile-label"> {{ room.2}}</label>
+        </div>
+        <label for="walk" class="radio-tile-label"> {{ room.1}}</label>
+      </div>
+    </div>
+       
+      </br>
+        {% endif %}
+        {% empty %}
+        <h2>NO duties here , check another date</h2>
+        
+        {% endfor %}
+      
+       </br>
+       </div>
+       </div>
+
+<input type="submit" class="sub1" name="sub1" value="submit" >
+      </br>
+       
+
+</br>
+</br>
+  
+       
+ 
+<h1>Afternoon</h1>
+</br>
+<div class="container">
+  <div class="radio-tile-group">
+    {% for room in data %}
+    {% if room.3 == 'A' %}
+    <div class="input-container">
+      
+      <input id="walk" class="radio-button" type="radio" name="radioaf" value="{{ room.2}}"  />
+      <div class="radio-tile">
+       
+        <div class="icon walk-icon">
+         <label for="walk" class="radio-tile-label"> {{ room.2}}</label>
+        </div>
+        <label for="walk" class="radio-tile-label"> {{ room.1}}</label>
+      </div>
+    </div>
+  
+      </br>
+      {% endif %}
+              {% empty %}
+        <h2>NO duties here , check another date</h2>
+
+       {% endfor %}
+        </br>
+       </div>
+       </div>
+     
+    <input type="submit" class="sub2" name="sub2" value="submit" >    
+     
+{% endif %}        
+
+ 
+  
+ 
+{% if inv_or_dc == 'invigilator' %}
+ <form method ="GET">
+<h1>Morning</h1>
+
+</br>
+<form>
+<div class="container">
+  <div class="radio-tile-group">
+    {% for room in data %}
+    
+    
+    
+    {% if room.3 == 'M' %}
+
+  
+
+    <div class="input-container">
+      <input id="walk" class="radio-button" type="radio" name="radioaf_inv"  value="{{ room.4}}" />
+      
+      <div class="radio-tile">
+ 	<input type="hidden" name="dates" value="{{ room.0}}" />
+ 	<input type="hidden" name="subject" value="{{ room.1}}" />
+ 	<input type="hidden" name="id" value="{{ room.4}}" />
+        <div class="icon walk-icon">
+        
+        <label for="walk" class="radio-tile-label"> {{ room.2}}</label>
+        </div>
+        <label for="walk" class="radio-tile-label"> {{ room.1}}</label>
+      </div>
+    </div>
+       
+      </br>
+        {% endif %}
+                {% empty %}
+        <h2>NO duties here , check another date</h2>
+        
+        {% endfor %}
+      
+       </br>
+       </div>
+       </div>
+
+
+       
+
+</br>
+</br>
+  
+       
+ 
+<h1>Afternoon</h1>
+</br>
+
+<div class="container">
+  <div class="radio-tile-group">
+    {% for room in data %}
+    {% if room.3 == 'A' %}
+ 
+    <div class="input-container">
+      
+      <input id="walk" class="radio-button" type="radio" name="radioaf_inv" value="{{ room.4}}"  />
+      <div class="radio-tile">
+ 	<input type="hidden" name="dates" value="{{ room.0}}" />
+ 	<input type="hidden" name="subject" value="{{ room.1}}" />
+ 	<input type="hidden" name="id" value="{{ room.4}}" />
+        <div class="icon walk-icon">
+         <label for="walk" class="radio-tile-label"> {{ room.2}}</label>
+        </div>
+        <label for="walk" class="radio-tile-label"> {{ room.1}}</label>
+      </div>
+    </div>
+  
+      </br>
+
+      
+      {% endif %}
+              {% empty %}
+        <h2>NO duties here , check another date</h2>
+
+       {% endfor %}
+        </br>
+       </div>
+       </div>
+       
+     
+    <input type="submit" class="sub2" name="sub_inv_2" value="submit" >    
+     
+{% endif %}        
